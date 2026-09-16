@@ -38,6 +38,7 @@ link() {
   echo "linked: $dest"
 }
 
+link .zshenv
 link .zshrc
 link .config/git/config
 link .config/gh/config.yml

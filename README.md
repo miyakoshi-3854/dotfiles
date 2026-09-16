@@ -11,6 +11,7 @@ dotfiles/
 │   ├── git/config
 │   ├── gwq/config.toml
 │   └── mise/config.toml
+├── .zshenv
 ├── .zshrc
 └── install.sh
 ```
