@@ -16,7 +16,17 @@
 [alias]
     m = merge
     pl = pull
-    p = push
-    t = stash push --staged -m
+    ps = push
+    sl = stash list
+    sp = stash pop
+    ss = stash push --staged -m
+    s = status -sb
+    d = diff
+    dc = diff --cached
+    c = commit
+    cm = commit -m
+    ca = commit --amend
+    l = log --oneline --graph --decorate
+    undo = reset --soft HEAD^
 [ghq]
     root = ~/ghq
