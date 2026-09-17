@@ -44,6 +44,7 @@ link .config/git/config
 link .config/gh/config.yml
 link .config/mise/config.toml
 link .config/gwq/config.toml
+link .config/starship/config.toml
 
 # ── Git identity ──────────────────────────────────────────────────────────────
 GIT_LOCAL_CONFIG="$HOME/.config/git/config.local"

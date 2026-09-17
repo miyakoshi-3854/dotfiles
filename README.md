@@ -10,7 +10,8 @@ dotfiles/
 │   ├── gh/config.yml
 │   ├── git/config
 │   ├── gwq/config.toml
-│   └── mise/config.toml
+│   ├── mise/config.toml
+│   └── starship/config.toml
 ├── .zshenv
 ├── .zshrc
 └── install.sh
