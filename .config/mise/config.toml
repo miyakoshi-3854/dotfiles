@@ -1,9 +1,11 @@
+# C compilers (gcc, make) are not managed by mise:
+# they come from build-essential (apt.txt) on Linux and Xcode Command Line Tools on macOS.
 [tools]
-"aqua:starship/starship" = "latest"
-"aqua:cli/cli" = "latest"
-"aqua:x-motemen/ghq" = "latest"
-"aqua:d-kuro/gwq" = "latest"
-"aqua:junegunn/fzf" = "latest"
+node = "lts"
+"npm:typescript" = "latest"
+pnpm = "latest"
+python = "latest"
+uv = "latest"
 
 [env]
 _.path = ["~/.local/bin"]
