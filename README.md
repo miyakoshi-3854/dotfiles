@@ -31,9 +31,10 @@ This single command will:
 2. (Linux only) Install base packages listed in `apt.txt`
 3. Install [Homebrew](https://brew.sh) (if not already installed)
 4. Install CLI tools via `brew bundle` (`Brewfile`)
-5. Symlink config files to `$HOME`
-6. Prompt for your Git `user.name` / `user.email` and save them to `~/.config/git/config.local` (untracked, included from `.config/git/config`)
-7. Install language runtimes via `mise install`
+5. Install [Claude Code](https://claude.com/claude-code) via the official installer (auto-updates; `~/.local/bin/claude`)
+6. Symlink config files to `$HOME`
+7. Prompt for your Git `user.name` / `user.email` and save them to `~/.config/git/config.local` (untracked, included from `.config/git/config`)
+8. Install language runtimes via `mise install`
 
 ### Package management
 
@@ -55,7 +56,6 @@ This single command will:
 | [gwq](https://github.com/d-kuro/gwq) | Git worktree manager |
 | [fzf](https://github.com/junegunn/fzf) | Fuzzy finder |
 | [tree](https://oldmanprogrammer.net/source.php?dir=projects/tree) | Directory listing |
-| [Claude Code](https://claude.com/claude-code) | AI coding agent |
 
 ### Languages (mise)
 
