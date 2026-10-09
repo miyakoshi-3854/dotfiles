@@ -2,13 +2,18 @@
 
 set -euo pipefail
 
-# ── Install mise ──────────────────────────────────────────────────────────────
-if ! command -v mise &>/dev/null; then
-  echo "Installing mise..."
-  curl -fsSL https://mise.run | sh
-  export PATH="$HOME/.local/bin:$PATH"
-else
-  echo "mise: already installed"
+OS="$(uname -s)"
+
+# ── Ensure git (needed to clone) ──────────────────────────────────────────────
+if ! command -v git &>/dev/null; then
+  if [ "$OS" = "Linux" ]; then
+    echo "Installing git..."
+    sudo apt-get update
+    sudo apt-get install -y git
+  else
+    echo "git not found. Run 'xcode-select --install' first." >&2
+    exit 1
+  fi
 fi
 
 # ── Clone dotfiles ────────────────────────────────────────────────────────────
@@ -23,6 +28,37 @@ else
 fi
 
 cd "$DOTFILE_DIR"
+
+# ── apt packages (Linux) ──────────────────────────────────────────────────────
+if [ "$OS" = "Linux" ]; then
+  echo "Installing apt packages..."
+  sudo apt-get update
+  grep -vE '^\s*(#|$)' apt.txt | xargs sudo apt-get install -y
+fi
+
+# ── Install Homebrew ──────────────────────────────────────────────────────────
+load_brew() {
+  local brew
+  for brew in /opt/homebrew/bin/brew /usr/local/bin/brew /home/linuxbrew/.linuxbrew/bin/brew; do
+    if [ -x "$brew" ]; then
+      eval "$("$brew" shellenv)"
+      return
+    fi
+  done
+}
+
+load_brew
+if ! command -v brew &>/dev/null; then
+  echo "Installing Homebrew..."
+  NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  load_brew
+else
+  echo "Homebrew: already installed"
+fi
+
+# ── brew bundle ───────────────────────────────────────────────────────────────
+echo "Running brew bundle..."
+brew bundle --file="$DOTFILE_DIR/Brewfile"
 
 # ── Symlinks ──────────────────────────────────────────────────────────────────
 link() {
