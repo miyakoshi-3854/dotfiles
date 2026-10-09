@@ -14,6 +14,8 @@ dotfiles/
 │   └── starship/config.toml
 ├── .zshenv
 ├── .zshrc
+├── Brewfile
+├── apt.txt
 └── install.sh
 ```
 
@@ -25,19 +27,47 @@ curl -fsSL https://raw.githubusercontent.com/miyakoshi-3854/dotfiles/main/instal
 
 This single command will:
 
-1. Install [mise](https://mise.jdx.dev) (if not already installed)
-2. Install [ghq](https://github.com/x-motemen/ghq) and clone this repo
-3. Symlink config files to `$HOME`
-4. Prompt for your Git `user.name` / `user.email` and save them to `~/.config/git/config.local` (untracked, included from `.config/git/config`)
-5. Install all tools via `mise install`
+1. Clone this repo (installs `git` via apt on Linux if missing)
+2. (Linux only) Install base packages listed in `apt.txt`
+3. Install [Homebrew](https://brew.sh) (if not already installed)
+4. Install CLI tools via `brew bundle` (`Brewfile`)
+5. Symlink config files to `$HOME`
+6. Prompt for your Git `user.name` / `user.email` and save them to `~/.config/git/config.local` (untracked, included from `.config/git/config`)
+7. Install language runtimes via `mise install`
+
+### Package management
+
+| File | Manager | Scope |
+|------|---------|-------|
+| `apt.txt` | apt | Base packages for Linux (build tools, zsh, etc.) |
+| `Brewfile` | Homebrew | CLI tools (shared by macOS and Linux) |
+| `.config/mise/config.toml` | mise | Language runtimes |
+
+### CLI tools (Brewfile)
 
 | Tool | Description |
 |------|-------------|
+| [git](https://git-scm.com) | Version control |
+| [mise](https://mise.jdx.dev) | Language runtime manager |
 | [starship](https://starship.rs) | Shell prompt |
 | [gh](https://cli.github.com) | GitHub CLI |
 | [ghq](https://github.com/x-motemen/ghq) | Git repository manager |
 | [gwq](https://github.com/d-kuro/gwq) | Git worktree manager |
 | [fzf](https://github.com/junegunn/fzf) | Fuzzy finder |
+| [tree](https://oldmanprogrammer.net/source.php?dir=projects/tree) | Directory listing |
+| [Claude Code](https://claude.com/claude-code) | AI coding agent |
+
+### Languages (mise)
+
+| Tool | Version |
+|------|---------|
+| [Node.js](https://nodejs.org) | LTS |
+| [TypeScript](https://www.typescriptlang.org) | latest |
+| [pnpm](https://pnpm.io) | latest |
+| [Python](https://www.python.org) | latest |
+| [uv](https://docs.astral.sh/uv/) | latest |
+
+C compilers (`gcc`, `make`) come from `build-essential` in `apt.txt` on Linux, and from Xcode Command Line Tools on macOS.
 
 ## Notes
 
