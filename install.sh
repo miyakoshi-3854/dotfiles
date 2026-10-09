@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Every command that may read stdin is given </dev/null, and prompts read from
+# /dev/tty: under `curl ... | bash`, stdin is this script itself.
+
 set -euo pipefail
 
 OS="$(uname -s)"
@@ -8,8 +11,8 @@ OS="$(uname -s)"
 if ! command -v git &>/dev/null; then
   if [ "$OS" = "Linux" ]; then
     echo "Installing git..."
-    sudo apt-get update
-    sudo apt-get install -y git
+    sudo apt-get update </dev/null
+    sudo apt-get install -y git </dev/null
   else
     echo "git not found. Run 'xcode-select --install' first." >&2
     exit 1
@@ -32,7 +35,7 @@ cd "$DOTFILE_DIR"
 # ── apt packages (Linux) ──────────────────────────────────────────────────────
 if [ "$OS" = "Linux" ]; then
   echo "Installing apt packages..."
-  sudo apt-get update
+  sudo apt-get update </dev/null
   grep -vE '^\s*(#|$)' apt.txt | xargs sudo apt-get install -y
 fi
 
@@ -50,7 +53,7 @@ load_brew() {
 load_brew
 if ! command -v brew &>/dev/null; then
   echo "Installing Homebrew..."
-  NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" </dev/null
   load_brew
 else
   echo "Homebrew: already installed"
@@ -58,7 +61,7 @@ fi
 
 # ── brew bundle ───────────────────────────────────────────────────────────────
 echo "Running brew bundle..."
-brew bundle --file="$DOTFILE_DIR/Brewfile"
+brew bundle --file="$DOTFILE_DIR/Brewfile" </dev/null
 
 # ── Symlinks ──────────────────────────────────────────────────────────────────
 link() {
@@ -86,8 +89,8 @@ link .config/starship/config.toml
 GIT_LOCAL_CONFIG="$HOME/.config/git/config.local"
 if [ ! -e "$GIT_LOCAL_CONFIG" ]; then
   echo ""
-  read -rp "Git user.name: " git_user_name
-  read -rp "Git user.email: " git_user_email
+  read -rp "Git user.name: " git_user_name </dev/tty
+  read -rp "Git user.email: " git_user_email </dev/tty
   cat >"$GIT_LOCAL_CONFIG" <<EOF
 [user]
     name = $git_user_name
@@ -100,7 +103,7 @@ fi
 
 # ── mise install ──────────────────────────────────────────────────────────────
 echo "Running mise install..."
-mise install
+mise install </dev/null
 
 echo ""
 echo "Done!"
