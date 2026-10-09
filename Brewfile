@@ -8,5 +8,3 @@ brew "ghq"
 brew "d-kuro/tap/gwq", trusted: true
 brew "fzf"
 brew "tree"
-
-cask "claude-code"
