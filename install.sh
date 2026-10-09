@@ -63,6 +63,15 @@ fi
 echo "Running brew bundle..."
 brew bundle --file="$DOTFILE_DIR/Brewfile" </dev/null
 
+# ── Claude Code ───────────────────────────────────────────────────────────────
+# Installed by the official installer (not Homebrew) so that it auto-updates.
+if ! command -v claude &>/dev/null; then
+  echo "Installing Claude Code..."
+  bash -c "$(curl -fsSL https://claude.ai/install.sh)" </dev/null
+else
+  echo "Claude Code: already installed"
+fi
+
 # ── Symlinks ──────────────────────────────────────────────────────────────────
 link() {
   local src="$DOTFILE_DIR/$1"
