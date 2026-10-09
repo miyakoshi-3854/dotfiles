@@ -1,0 +1,8 @@
+# Base packages for Linux (WSL2). CLI tools are managed by Brewfile.
+# build-essential, procps, curl, file, git are required by Homebrew on Linux.
+build-essential
+procps
+curl
+file
+git
+zsh
