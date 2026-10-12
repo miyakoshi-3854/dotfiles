@@ -1,3 +1,6 @@
+# enable completion system (defines compdef, used by the completions below)
+autoload -Uz compinit && compinit
+
 # apply tools
 eval "$(starship init zsh)"
 eval "$(mise activate zsh)"
