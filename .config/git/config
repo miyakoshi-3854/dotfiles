@@ -30,3 +30,5 @@
     undo = reset --soft HEAD^
 [ghq]
     root = ~/ghq
+[url "git@github.com:"]
+    insteadOf = https://github.com/
