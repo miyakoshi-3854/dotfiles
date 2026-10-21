@@ -72,3 +72,10 @@ alias mr="mise run"
 
 # open cursor
 alias c="cursor ."
+
+# compile C
+alias cc42="cc -Wall -Wextra -Werror"
+alias ca="cc -Wall -Wextra -Werror -g3 -fno-omit-frame-pointer -fsanitize=address,undefined"
+
+# norminette (check given files, or current directory if none)
+alias n="norminette -R CheckForbiddenSourceHeader"
