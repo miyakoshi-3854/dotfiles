@@ -12,6 +12,8 @@ brew "tree"
 # GUI apps (macOS only; casks are not available on Linux)
 # All apps update themselves, so `brew upgrade` skips them.
 if OS.mac?
+  tap "homebrew/autoupdate" # `brew autoupdate` (started by install.sh)
+
   cask "ghostty"
   cask "zed"
   cask "zen"

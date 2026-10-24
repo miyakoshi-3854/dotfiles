@@ -63,6 +63,18 @@ fi
 echo "Running brew bundle..."
 brew bundle --file="$DOTFILE_DIR/Brewfile" </dev/null
 
+# ── brew autoupdate (macOS) ───────────────────────────────────────────────────
+# Upgrades formulae and casks daily via launchd. No --greedy: GUI apps update themselves.
+if [ "$OS" = "Darwin" ]; then
+  if [ ! -e "$HOME/Library/LaunchAgents/com.github.domt4.homebrew-autoupdate.plist" ]; then
+    echo "Starting brew autoupdate..."
+    mkdir -p "$HOME/Library/LaunchAgents" # may not exist on a fresh Mac
+    brew autoupdate start 1d --upgrade --cleanup </dev/null
+  else
+    echo "brew autoupdate: already configured"
+  fi
+fi
+
 # ── Claude Code ───────────────────────────────────────────────────────────────
 # Installed by the official installer (not Homebrew) so that it auto-updates.
 if ! command -v claude &>/dev/null; then
