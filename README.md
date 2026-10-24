@@ -67,6 +67,7 @@ Installed as Homebrew casks. All apps update themselves, so `brew upgrade` skips
 
 | App | Description |
 |-----|-------------|
+| [Cursor](https://cursor.com) | AI code editor |
 | [Ghostty](https://ghostty.org) | Terminal emulator (One Hunter Material colors, matching Cursor's terminal) |
 | [Zed](https://zed.dev) | Code editor |
 | [Zen](https://zen-browser.app) | Web browser |

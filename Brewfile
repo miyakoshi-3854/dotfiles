@@ -14,6 +14,7 @@ brew "tree"
 if OS.mac?
   tap "homebrew/autoupdate" # `brew autoupdate` (started by install.sh)
 
+  cask "cursor"
   cask "ghostty"
   cask "zed"
   cask "zen"
