@@ -30,7 +30,7 @@ This single command will:
 1. Clone this repo (installs `git` via apt on Linux if missing)
 2. (Linux only) Install base packages listed in `apt.txt`
 3. Install [Homebrew](https://brew.sh) (if not already installed)
-4. Install CLI tools via `brew bundle` (`Brewfile`)
+4. Install CLI tools (and GUI apps on macOS) via `brew bundle` (`Brewfile`)
 5. Install [Claude Code](https://claude.com/claude-code) via the official installer (auto-updates; `~/.local/bin/claude`)
 6. Symlink config files to `$HOME`
 7. Prompt for your Git `user.name` / `user.email` and save them to `~/.config/git/config.local` (untracked, included from `.config/git/config`)
@@ -41,7 +41,7 @@ This single command will:
 | File | Manager | Scope |
 |------|---------|-------|
 | `apt.txt` | apt | Base packages for Linux (build tools, zsh, etc.) |
-| `Brewfile` | Homebrew | CLI tools (shared by macOS and Linux) |
+| `Brewfile` | Homebrew | CLI tools (shared by macOS and Linux), GUI apps (macOS only) |
 | `.config/mise/config.toml` | mise | Language runtimes |
 
 ### CLI tools (Brewfile)
@@ -56,6 +56,16 @@ This single command will:
 | [gwq](https://github.com/d-kuro/gwq) | Git worktree manager |
 | [fzf](https://github.com/junegunn/fzf) | Fuzzy finder |
 | [tree](https://oldmanprogrammer.net/source.php?dir=projects/tree) | Directory listing |
+
+### GUI apps (Brewfile, macOS only)
+
+Installed as Homebrew casks. All apps update themselves, so `brew upgrade` skips them (use `brew upgrade --greedy` to force).
+
+| App | Description |
+|-----|-------------|
+| [Ghostty](https://ghostty.org) | Terminal emulator |
+| [Zed](https://zed.dev) | Code editor |
+| [Zen](https://zen-browser.app) | Web browser |
 
 ### Languages (mise)
 

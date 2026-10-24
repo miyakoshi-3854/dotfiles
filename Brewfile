@@ -8,3 +8,11 @@ brew "ghq"
 brew "d-kuro/tap/gwq", trusted: true
 brew "fzf"
 brew "tree"
+
+# GUI apps (macOS only; casks are not available on Linux)
+# All apps update themselves, so `brew upgrade` skips them.
+if OS.mac?
+  cask "ghostty"
+  cask "zed"
+  cask "zen"
+end
