@@ -4,5 +4,5 @@ font-family = Menlo
 bold-is-bright = true
 
 theme = OneHunter-Material
-background-opacity = 0.85
+background-opacity = 0.90
 background-blur = true
