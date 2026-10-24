@@ -105,6 +105,8 @@ link .config/gh/config.yml
 link .config/mise/config.toml
 link .config/gwq/config.toml
 link .config/starship/config.toml
+link .config/ghostty/config
+link .config/ghostty/themes/OneHunter-Material
 
 # ── Git identity ──────────────────────────────────────────────────────────────
 GIT_LOCAL_CONFIG="$HOME/.config/git/config.local"

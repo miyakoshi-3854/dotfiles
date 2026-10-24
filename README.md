@@ -8,6 +8,9 @@ Personal dotfiles for WSL2 / macOS.
 dotfiles/
 ├── .config/
 │   ├── gh/config.yml
+│   ├── ghostty/
+│   │   ├── config
+│   │   └── themes/OneHunter-Material
 │   ├── git/config
 │   ├── gwq/config.toml
 │   ├── mise/config.toml
@@ -64,7 +67,7 @@ Installed as Homebrew casks. All apps update themselves, so `brew upgrade` skips
 
 | App | Description |
 |-----|-------------|
-| [Ghostty](https://ghostty.org) | Terminal emulator |
+| [Ghostty](https://ghostty.org) | Terminal emulator (One Hunter Material colors, matching Cursor's terminal) |
 | [Zed](https://zed.dev) | Code editor |
 | [Zen](https://zen-browser.app) | Web browser |
 
