@@ -10,7 +10,7 @@ source <(fzf --zsh)
 
 # pick a repo from ghq list via fzf
 function _select_repo() {
-  ghq list | fzf --query="$1"
+  ghq list | fzf --layout=reverse --query="$1"
 }
 
 # get repo list
