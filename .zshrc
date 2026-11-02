@@ -10,7 +10,10 @@ source <(fzf --zsh)
 
 # pick a repo from ghq list via fzf
 function _select_repo() {
-  ghq list | fzf --layout=reverse --query="$1"
+  local root=$(ghq root)
+  ghq list | fzf --layout=reverse --query="$1" --cycle \
+    --preview "tree -a -C -L 2 -I .git $root/{}" \
+    --preview-window=right:50%
 }
 
 # get repo list
