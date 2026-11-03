@@ -8,6 +8,7 @@ brew "ghq"
 brew "d-kuro/tap/gwq", trusted: true
 brew "fzf"
 brew "tree"
+brew "poppler"
 
 # GUI apps (macOS only; casks are not available on Linux)
 # All apps update themselves, so `brew upgrade` skips them.
