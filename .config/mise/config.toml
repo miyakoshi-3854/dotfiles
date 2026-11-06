@@ -2,13 +2,16 @@
 # they come from build-essential (apt.txt) on Linux and Xcode Command Line Tools on macOS.
 [tools]
 node = "lts"
+"npm:agent-browser" = "latest"
 "npm:typescript" = "latest"
 pnpm = "latest"
 python = "latest"
+terraform = "1.16.6"
 uv = "latest"
 
 [env]
-_.path = ["~/.local/bin"]
+_.path = ["~/.local/bin", "/opt/homebrew/opt/libpq/bin"]
 
 [settings]
 trusted_config_paths = ["~/ghq"]
+idiomatic_version_file_enable_tools = ["terraform"]
