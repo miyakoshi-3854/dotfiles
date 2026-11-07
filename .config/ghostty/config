@@ -1,6 +1,5 @@
-title = "👻"
-
 font-family = Menlo
+font-size = 16
 bold-is-bright = true
 
 theme = OneHunter-Material
