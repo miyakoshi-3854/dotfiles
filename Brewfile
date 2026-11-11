@@ -9,6 +9,7 @@ brew "d-kuro/tap/gwq", trusted: true
 brew "fzf"
 brew "tree"
 brew "poppler"
+brew "ffmpeg"
 brew "awscli"
 brew "libpq" # keg-only: psql is put on PATH by mise's [env] _.path
 brew "colima", restart_service: :changed
