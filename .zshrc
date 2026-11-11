@@ -45,8 +45,15 @@ function gwq-fzf() {
     return
   fi
 
-  # Copy all .env files from the original worktree
-  local new_path="$(ghq root)/${repo}=${branch}"
+  # Resolve the new worktree path from git (gwq sanitizes "/" in branch names)
+  local new_path=$(git -C "$repo_path" worktree list --porcelain \
+    | awk -v ref="refs/heads/${branch}" '/^worktree /{p=substr($0,10)} $0=="branch "ref{print p; exit}')
+  if [ -z "$new_path" ]; then
+    echo "Could not find worktree for ${branch}; skipped copying .env files"
+    return
+  fi
+
+  # Copy all .env* files (e.g. .env, .env.local) from the original worktree
   local copied=0
   while IFS= read -r env_file; do
     local relative="${env_file#${repo_path}/}"
@@ -54,12 +61,13 @@ function gwq-fzf() {
     mkdir -p "$(dirname "$dest")"
     cp "$env_file" "$dest"
     copied=$((copied + 1))
-  done < <(find "${repo_path}" -name ".env" -not -path "*/.git/*")
+  done < <(find "${repo_path}" \( -name .git -o -name node_modules \) -prune -o \
+    -type f -name ".env*" -not -name "*.example" -print)
   if [ "$copied" -gt 0 ]; then
     echo "Copied ${copied} .env file(s)"
   fi
 }
-alias wc=gwq-fzf
+alias wn=gwq-fzf
 
 # remove branch
 alias wr="gwq remove -b"

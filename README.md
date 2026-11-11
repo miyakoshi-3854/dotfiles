@@ -86,4 +86,4 @@ C compilers (`gcc`, `make`) come from `build-essential` in `apt.txt` on Linux, a
 
 ## Notes
 
-- `wc` (`gwq-fzf`) creates a new worktree and automatically copies all `.env` files from the original worktree into it. Be aware that this includes any secrets stored in those files.
+- `wn` (`gwq-fzf`) creates a new worktree and automatically copies all `.env*` files (e.g. `.env`, `.env.local`; `*.example` and `node_modules` are skipped) from the original worktree into it. Be aware that this includes any secrets stored in those files.
