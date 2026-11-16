@@ -6,6 +6,8 @@ Personal dotfiles for WSL2 / macOS.
 
 ```
 dotfiles/
+├── .claude/
+│   └── CLAUDE.md
 ├── .config/
 │   ├── gh/config.yml
 │   ├── ghostty/
@@ -60,6 +62,10 @@ This single command will:
 | [gwq](https://github.com/d-kuro/gwq) | Git worktree manager |
 | [fzf](https://github.com/junegunn/fzf) | Fuzzy finder |
 | [tree](https://oldmanprogrammer.net/source.php?dir=projects/tree) | Directory listing |
+| [ast-grep](https://ast-grep.github.io) | Structural code search and rewrite |
+| [actionlint](https://github.com/rhysd/actionlint) | GitHub Actions workflow linter |
+| [shellcheck](https://www.shellcheck.net) | Shell script linter |
+| [just](https://just.systems) | Command runner |
 
 ### GUI apps (Brewfile, macOS only)
 
@@ -86,4 +92,5 @@ C compilers (`gcc`, `make`) come from `build-essential` in `apt.txt` on Linux, a
 
 ## Notes
 
+- `.claude/CLAUDE.md` is linked to `~/.claude/CLAUDE.md` (user-level instructions for Claude Code): it tells Claude to use the tools installed here (ghq, gwq, gh, ast-grep, etc.).
 - `wn` (`gwq-fzf`) creates a new worktree and automatically copies all `.env*` files (e.g. `.env`, `.env.local`; `*.example` and `node_modules` are skipped) from the original worktree into it. Be aware that this includes any secrets stored in those files.
