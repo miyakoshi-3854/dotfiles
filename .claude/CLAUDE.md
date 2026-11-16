@@ -48,10 +48,9 @@ GitHub 上の情報は gh で取る。github.com を WebFetch で読まない。
 - `.github/workflows/*.yml` を編集したら `actionlint`
 - シェルスクリプトを書いた・編集したら `shellcheck <file>`
 
-## タスク実行: just / mise
+## タスク実行: mise
 
 ビルドやテストの方法を探すときは、まずプロジェクトに定義されたタスクを見る。
 
-- `justfile` があれば `just --list` で確認して `just <recipe>` で実行
-- mise のタスクは `mise tasks` で確認して `mise run <task>` で実行
-- どちらもなければ `package.json` の scripts など
+- `mise tasks` で確認して `mise run <task>` で実行
+- なければ `package.json` の scripts など
