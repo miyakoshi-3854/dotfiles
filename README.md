@@ -65,7 +65,6 @@ This single command will:
 | [ast-grep](https://ast-grep.github.io) | Structural code search and rewrite |
 | [actionlint](https://github.com/rhysd/actionlint) | GitHub Actions workflow linter |
 | [shellcheck](https://www.shellcheck.net) | Shell script linter |
-| [just](https://just.systems) | Command runner |
 
 ### GUI apps (Brewfile, macOS only)
 
