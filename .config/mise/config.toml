@@ -10,7 +10,7 @@ terraform = "1.16.6"
 uv = "latest"
 
 [env]
-_.path = ["~/.local/bin", "/opt/homebrew/opt/libpq/bin"]
+_.path = ["~/.local/bin", "/opt/homebrew/opt/libpq/bin", "/home/linuxbrew/.linuxbrew/opt/libpq/bin"]
 
 [settings]
 trusted_config_paths = ["~/ghq"]
