@@ -103,7 +103,8 @@ link() {
   local dest="$HOME/$1"
   mkdir -p "$(dirname "$dest")"
   if [ -e "$dest" ] && [ ! -L "$dest" ]; then
-    local backup="$dest.bak.$(date +%Y%m%d%H%M%S)"
+    local backup
+    backup="$dest.bak.$(date +%Y%m%d%H%M%S)"
     mv "$dest" "$backup"
     echo "backup: $backup"
   fi
