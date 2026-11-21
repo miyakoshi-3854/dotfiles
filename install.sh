@@ -121,6 +121,7 @@ link .config/starship/config.toml
 link .config/ghostty/config
 link .config/ghostty/themes/OneHunter-Material
 link .claude/CLAUDE.md
+link .codex/AGENTS.md # symlink to .claude/CLAUDE.md in this repo
 
 # ── Git identity ──────────────────────────────────────────────────────────────
 GIT_LOCAL_CONFIG="$HOME/.config/git/config.local"

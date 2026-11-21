@@ -8,6 +8,8 @@ Personal dotfiles for WSL2 / macOS.
 dotfiles/
 ├── .claude/
 │   └── CLAUDE.md
+├── .codex/
+│   └── AGENTS.md -> ../.claude/CLAUDE.md
 ├── .config/
 │   ├── gh/config.yml
 │   ├── ghostty/
@@ -93,4 +95,5 @@ C compilers (`gcc`, `make`) come from `build-essential` in `apt.txt` on Linux, a
 ## Notes
 
 - `.claude/CLAUDE.md` is linked to `~/.claude/CLAUDE.md` (user-level instructions for Claude Code): it tells Claude to use the tools installed here (ghq, gwq, gh, ast-grep, etc.).
+- `.codex/AGENTS.md` is a symlink to `.claude/CLAUDE.md` and is linked to `~/.codex/AGENTS.md`, so Codex CLI gets the same instructions. Edit `.claude/CLAUDE.md`.
 - `wn` (`gwq-fzf`) creates a new worktree and automatically copies all `.env*` files (e.g. `.env`, `.env.local`; `*.example` and `node_modules` are skipped) from the original worktree into it. Be aware that this includes any secrets stored in those files.
