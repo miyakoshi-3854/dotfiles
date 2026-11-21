@@ -77,7 +77,9 @@ fi
 
 # ── Claude Code ───────────────────────────────────────────────────────────────
 # Installed by the official installer (not Homebrew) so that it auto-updates.
-if ! command -v claude &>/dev/null; then
+# Check the installer's own path, not `command -v`: a claude from another
+# manager (npm, Homebrew) would otherwise skip the install.
+if [ ! -x "$HOME/.local/bin/claude" ]; then
   echo "Installing Claude Code..."
   bash -c "$(curl -fsSL https://claude.ai/install.sh)" </dev/null
 else
@@ -89,8 +91,9 @@ fi
 # "Update now" at startup. ~/.local/bin is put on PATH first: otherwise the
 # installer appends a PATH block to ~/.zshrc, which is symlinked to this repo
 # (.zshenv already adds ~/.local/bin).
+# As with Claude Code, check the installer's own path, not `command -v`.
 export PATH="$HOME/.local/bin:$PATH"
-if ! command -v codex &>/dev/null; then
+if [ ! -x "$HOME/.local/bin/codex" ]; then
   echo "Installing Codex CLI..."
   CODEX_NON_INTERACTIVE=1 sh -c "$(curl -fsSL https://chatgpt.com/codex/install.sh)" </dev/null
 else
