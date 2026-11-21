@@ -84,6 +84,19 @@ else
   echo "Claude Code: already installed"
 fi
 
+# ── Codex CLI ─────────────────────────────────────────────────────────────────
+# Installed by the official installer (not Homebrew/mise) so that Codex offers
+# "Update now" at startup. ~/.local/bin is put on PATH first: otherwise the
+# installer appends a PATH block to ~/.zshrc, which is symlinked to this repo
+# (.zshenv already adds ~/.local/bin).
+export PATH="$HOME/.local/bin:$PATH"
+if ! command -v codex &>/dev/null; then
+  echo "Installing Codex CLI..."
+  CODEX_NON_INTERACTIVE=1 sh -c "$(curl -fsSL https://chatgpt.com/codex/install.sh)" </dev/null
+else
+  echo "Codex CLI: already installed"
+fi
+
 # ── Symlinks ──────────────────────────────────────────────────────────────────
 link() {
   local src="$DOTFILE_DIR/$1"
