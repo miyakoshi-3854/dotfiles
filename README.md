@@ -17,6 +17,7 @@ dotfiles/
 │   │   └── themes/OneHunter-Material
 │   ├── git/config
 │   ├── gwq/config.toml
+│   ├── karabiner/karabiner.json
 │   ├── mise/config.toml
 │   └── starship/config.toml
 ├── .zshenv
@@ -77,6 +78,7 @@ Installed as Homebrew casks. All apps update themselves, so `brew upgrade` skips
 |-----|-------------|
 | [Cursor](https://cursor.com) | AI code editor |
 | [Ghostty](https://ghostty.org) | Terminal emulator (One Hunter Material colors, matching Cursor's terminal) |
+| [Karabiner-Elements](https://karabiner-elements.pqrs.org) | Keyboard remapper (Caps Lock → F18 for input source toggle, left Control + IJKL → arrow keys) |
 | [Zed](https://zed.dev) | Code editor |
 | [Zen](https://zen-browser.app) | Web browser |
 
@@ -97,3 +99,5 @@ C compilers (`gcc`, `make`) come from `build-essential` in `apt.txt` on Linux, a
 - `.claude/CLAUDE.md` is linked to `~/.claude/CLAUDE.md` (user-level instructions for Claude Code): it tells Claude to use the tools installed here (ghq, gwq, gh, ast-grep, etc.).
 - `.codex/AGENTS.md` is a symlink to `.claude/CLAUDE.md` and is linked to `~/.codex/AGENTS.md`, so Codex CLI gets the same instructions. Edit `.claude/CLAUDE.md`.
 - `wn` (`gwq-fzf`) creates a new worktree and automatically copies all `.env*` files (e.g. `.env`, `.env.local`; `*.example` and `node_modules` are skipped) from the original worktree into it. Be aware that this includes any secrets stored in those files.
+- `.config/karabiner` is linked as a whole directory: Karabiner-Elements saves `karabiner.json` by replacing the file, which would break a file symlink. Changes made in the Karabiner GUI show up as diffs in this repo.
+- After installing Karabiner-Elements, allow its background items, driver extension, and Input Monitoring in System Settings. To make Caps Lock toggle the input source, set System Settings → Keyboard → Keyboard Shortcuts → Input Sources → "Select the previous input source" to F18 (press Caps Lock).
