@@ -1,10 +1,10 @@
 # 開発環境で使うツール
 
-ここに書いたツールはすべてインストール済み。汎用的なやり方（find, git clone, git worktree add, WebFetch など）より優先して使う。
+ここに書いたツールはすべてインストール済み。汎用的なやり方（find, git clone, git worktree add, Web ページ取得ツール など）より優先して使う。
 
 ## 対話モードで止まる操作は使わない
 
-fzf やシェルを起動して入力を待つと、Claude からは操作できずに止まる。
+fzf やシェルを起動して入力を待つと、エージェントからは操作できずに止まる。
 
 - `gwq add -i`、`gwq add -s`、`gwq cd`（`cd.launch_shell = true` なのでシェルが起動する）
 - パターンなし、または複数に一致するパターンでの `gwq get` / `gwq remove`（fzf が開く）
@@ -18,7 +18,7 @@ fzf やシェルを起動して入力を待つと、Claude からは操作でき
 
 ## worktree: gwq
 
-`git worktree add` や Claude Code 組み込みの worktree は使わず、gwq で作る。
+`git worktree add` やエージェント組み込みの worktree 機能（Claude Code の EnterWorktree、Codex の worktree など）は使わず、gwq で作る。
 
 - 作成: リポジトリの中で `gwq add -b <branch>`
   - 配置は `~/ghq/github.com/<owner>/<repo>=<branch>`（ブランチ名の `/` と `:` は `-` になる）
@@ -29,7 +29,7 @@ fzf やシェルを起動して入力を待つと、Claude からは操作でき
 
 ## GitHub: gh
 
-GitHub 上の情報は gh で取る。github.com を WebFetch で読まない。
+GitHub 上の情報は gh で取る。github.com を Web ページ取得ツール（WebFetch など）で読まない。
 
 - PR: `gh pr view` / `gh pr diff` / `gh pr checks`
 - CI の失敗: `gh run view <id> --log-failed`
