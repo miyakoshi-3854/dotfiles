@@ -124,6 +124,11 @@ link .config/gwq/config.toml
 link .config/starship/config.toml
 link .config/ghostty/config
 link .config/ghostty/themes/OneHunter-Material
+# Karabiner rewrites karabiner.json by replacing the file, which would turn a
+# file symlink into a regular file. Link the whole directory instead.
+if [ "$OS" = "Darwin" ]; then
+  link .config/karabiner
+fi
 link .claude/CLAUDE.md
 link .codex/AGENTS.md # symlink to .claude/CLAUDE.md in this repo
 

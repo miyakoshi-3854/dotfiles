@@ -30,6 +30,7 @@ if OS.mac?
   cask "session-manager-plugin"
   cask "cursor"
   cask "ghostty"
+  cask "karabiner-elements" # its pkg installer asks for the sudo password
   cask "zed"
   cask "zen"
 end
