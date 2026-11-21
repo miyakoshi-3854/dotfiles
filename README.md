@@ -38,9 +38,10 @@ This single command will:
 4. Install CLI tools (and GUI apps on macOS) via `brew bundle` (`Brewfile`)
 5. (macOS only) Start `brew autoupdate` to upgrade Homebrew packages daily
 6. Install [Claude Code](https://claude.com/claude-code) via the official installer (auto-updates; `~/.local/bin/claude`)
-7. Symlink config files to `$HOME`
-8. Prompt for your Git `user.name` / `user.email` and save them to `~/.config/git/config.local` (untracked, included from `.config/git/config`)
-9. Install language runtimes via `mise install`
+7. Install [Codex CLI](https://github.com/openai/codex) via the official installer (offers "Update now" at startup; `~/.local/bin/codex`)
+8. Symlink config files to `$HOME`
+9. Prompt for your Git `user.name` / `user.email` and save them to `~/.config/git/config.local` (untracked, included from `.config/git/config`)
+10. Install language runtimes via `mise install`
 
 ### Package management
 
