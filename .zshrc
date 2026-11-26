@@ -25,6 +25,20 @@ function ghq-fzf() {
 }
 alias r=ghq-fzf
 
+# remove a repo by name or select one with fzf
+function ghq-rm-fzf() {
+  if (( $# > 0 )); then
+    command ghq rm "$@"
+    return
+  fi
+
+  local repo
+  repo=$(_select_repo "") || return 0
+  [[ -n "$repo" ]] || return 0
+  command ghq rm -- "$repo"
+}
+alias rrm=ghq-rm-fzf
+
 # create branch
 function gwq-fzf() {
   local repo=$(_select_repo "$1")
